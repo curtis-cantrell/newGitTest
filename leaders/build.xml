@@ -1,0 +1,183 @@
+<!DOCTYPE project>
+<project name="leaders" default="core" basedir=".">
+	<import file="../../build/build_common.xml"/>
+	
+	<property name="banner.title" value="Building Leader Process Jar"/>
+	<property name="src.dir" value="src/main"/>
+	<property name="test.dir" value="src/test"/>
+	<property name="leaders.jar" value="leaders.jar"/>
+	<property name="classes.dir" value="classes"/>
+	<property name="resource.dir" value="resource"/>
+	<property name="test.classes.dir" value="test.classes"/>
+    <property name="test.results.dir" location="${basedir}/test.results"/>    
+	
+	
+	<path id="classpath">
+		<pathelement path="${third.party.lib}/${log4j}"/>
+		<pathelement path="${third.party.lib}/${esapi}"/>
+		<pathelement path="${third.party.lib}/${junit}"/>
+		<pathelement path="${third.party.lib}/${mvel}"/>
+		<pathelement path="${third.party.lib}/${xalan}"/>
+		<pathelement path="${third.party.lib}/${joda-time}"/>
+		<pathelement path="${third.party.lib}/${commons.pool}"/>
+		<pathelement path="${third.party.lib}/${joox}"/>
+		<pathelement path="${third.party.lib}/${guava}"/>
+		<pathelement path="${third.party.lib}/${javassist}"/>
+		<pathelement path="${third.party.lib}/${commons.collections}"/>
+		<pathelement path="${third.party.lib}/${slf4j-api}"/>
+		<pathelement path="${eg.dist.components}/${shared}"/>
+  	    <path refid="j2ee.classpath"/>
+	</path>
+	
+	<path id="rules.test.classpath">
+		<path refid="classpath"/>
+		<path refid="test.classpath"/>
+		<pathelement location="${eg.conf}/properties"/>
+        <pathelement location="${classes.dir}"/>
+	</path>
+		
+	<!-- 
+	====================================================================================================
+		Target: core
+	====================================================================================================
+	-->
+	<target name="core" depends="banner,clean,clientjar"/>
+	
+	<!-- 
+	====================================================================================================
+		Target: clean
+	====================================================================================================
+	-->
+	<target name="clean">
+		 <delete dir="${classes.dir}"/> 
+		 <mkdir dir="${classes.dir}"/> 
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: compile
+	====================================================================================================
+	-->
+	<target name="compile" depends="clean">
+		<javacompile sourcedir="${src.dir}" destdir="${classes.dir}" classpath="classpath" />
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: clientjar
+	====================================================================================================
+	-->
+	<target name="clientjar" depends="compile">
+		<mkdir dir="${eg.dist.components}"/>
+		<makemanifestmcrw basedir="${basedir}"/>
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.xml"/>
+				<include name="**/*.properties"/>
+				<include name="**/*.ccf"/>
+				<include name="**/*.xsd"/>
+				<include name="**/*.wsdl"/>
+				<include name="**/*.dtd"/>
+			</fileset>
+			<fileset dir="${resource.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<jar manifest="${basedir}/META-INF/Manifest.mf" jarfile="${eg.dist.components}/${leaders.jar}" basedir="${classes.dir}" includes="**/*.dtd, **/*.wsdl, **/*.xsd, **/*.class,**/*.xml, **/*.sql, **/*.java"/>
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: scan
+	====================================================================================================
+	-->
+	<target name="scan">
+		<sonarScan 
+			src.dir="${src.dir}" 
+			classes.dir="${classes.dir}"
+			class.path.refid="classpath"
+			test.dir="${test.dir}"
+			test.classes.dir="${test.classes.dir}"
+			test.class.path.refid="test.classpath"
+			project.prefix="${project.prefix}"
+			project.name="leaders"
+			project.version="${build.label}"/>
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: appscan
+	====================================================================================================
+	-->
+	<target name="appscan">
+		<createAppscanProject
+			project.name="rules"
+			project.dir="${eg.components}/leaders"
+			class.path="classpath"
+			src.root="${src.dir}"/>
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: test-compile
+	====================================================================================================
+	-->
+	<target name="test-compile">
+		<!-- Compile the junit tests -->
+		<delete dir="${test.classes.dir}"/>
+		<mkdir dir="${test.classes.dir}"/>
+		<javacompile sourcedir="${test.dir}" destdir="${test.classes.dir}" classpath="test.classpath" />
+	</target>
+	
+	<!-- 
+	====================================================================================================
+		Target: test
+	====================================================================================================
+	-->
+	<target name="test">
+		
+		<!-- If not a release build, compile all non-test source files -->
+		<if><not><isset property="release.build"/></not>
+		<then>
+			<antcall target="compile"/>
+		</then>
+		</if>
+		
+		<!-- Compile the junit tests -->
+		<antcall target="test-compile"/>
+		
+		<!-- Run the junit tests -->
+		<delete dir="${test.results.dir}"/>
+		<mkdir dir="${test.results.dir}"/>
+		<run-junit
+			classes.dir="${test.classes.dir}"
+			test.results.dir="${test.results.dir}"
+			classpath="rules.test.classpath"
+			failure.property="junit.failure">
+			<fileset dir="@{classes.dir}">
+				<include name="**/*Test.class"/>
+			</fileset>
+		</run-junit>
+		
+		<!-- If test failed... -->
+		<if><isset property="junit.failure"/>
+		<then>
+			<!-- If recording junit results, write to result file -->
+			<if><isset property="junit.result.propfile"/>
+			<then>
+	    		<propertyfile file="${junit.result.propfile}">
+	    			<entry key="junit.failure" value="true"/>
+	    		</propertyfile>
+			</then>
+			</if>
+				
+			<!-- Write warning to build log -->
+			<echo>
+**********************************************************
+			JUNIT FAILURE!
+**********************************************************
+			</echo>
+		</then>
+		</if>
+	</target>
+</project>
