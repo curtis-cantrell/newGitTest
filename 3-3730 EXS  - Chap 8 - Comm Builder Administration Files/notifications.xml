@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<strs xmlns="http://schemas.streamserve.com/kernel/1.0">
+
+  <modules>
+    <module modulepath="kernel">
+      <component type="streamserve.notification.streamserver.examples.listener.NotificationListenerImpl" factory="http://schemas.streamserve.com/uid/service/javanotificationlistenerservice/1.0" runtime="http://schemas.streamserve.com/uid/javaruntime/1.0">
+        <configuration>
+          <java xmlns="http://schemas.streamserve.com/uid/javacomponent/1.0">
+            <class>streamserve.notification.streamserver.examples.listener.NotificationListenerImpl</class>
+          </java>
+        </configuration>
+      </component>
+      <component type="streamserve.notification.streamserver.examples.listener.NotificationListenerConfigurationImpl" factory="http://schemas.streamserve.com/uid/component/javaconfigurationadapter/1.0" runtime="http://schemas.streamserve.com/uid/javaruntime/1.0">
+        <configuration>
+          <java xmlns="http://schemas.streamserve.com/uid/javacomponent/1.0">
+            <class>streamserve.notification.streamserver.examples.listener.NotificationListenerConfigurationImpl</class>
+          </java>
+        </configuration>
+      </component>
+    </module>
+  </modules>
+
+  <containers>
+    <container type="http://schemas.streamserve.com/uid/component/servicecontainer/1.0">
+      <name value="http://platform.streamserve.com/uid/container/servicenotificationtest/1.0"/>
+      <configuration>
+        <servicecontainer xmlns="http://schemas.streamserve.com/uid/component/servicecontainer/1.0">
+          <servicecontroller type="http://schemas.streamserve.com/uid/component/servicecontroller/1.0">
+            <configuration>
+              <servicecontroller xmlns="http://schemas.streamserve.com/uid/component/servicecontroller/1.0">
+                <services>
+
+                  <service type="streamserve.notification.streamserver.examples.listener.NotificationListenerImpl">
+                    <properties>
+                      <name value="http://schemas.streamserve.com/uid/service/javanotificationlistenerservice/1.0"/>
+                      <instancing value="http://schemas.streamserve.com/uid/component/singletonservicefactory/1.0"/>
+                      <registration value="http://schemas.streamserve.com/uid/type/service/registration/local"/>
+                    </properties>
+                    <subscriptions>
+
+                      <subscription type="simple">
+                        <topic>streamserve.notification.streamserver.endbatch</topic>
+                      </subscription>
+
+                    </subscriptions>
+                    <configuration type="streamserve.notification.streamserver.examples.listener.NotificationListenerConfigurationImpl">
+                    	<notificationlistener xmlns="streamserve.notification.streamserver.examples.listener.NotificationListenerConfigurationImpl">
+                    		<outputdirectory ref="dir://./notifications"/>
+                    		<serialization>typed</serialization>
+                    	</notificationlistener>
+                    </configuration>
+                  </service>
+                  
+                </services>
+              </servicecontroller>
+            </configuration>
+          </servicecontroller>
+        </servicecontainer>
+      </configuration>
+    </container>
+  </containers>
+
+</strs>

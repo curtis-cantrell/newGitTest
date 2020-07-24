@@ -1,0 +1,18 @@
+md C:\ConnectionProfiles
+C:\OpenText\Exstream\16.3.0\Platform\Core\16.3.0\bin
+ss_tenantadmin -action configure_multitenant_repository -dbhost WinServer2012r2Std -dbport 1433 -dbvendor sqlserver -dbname DB_MultiTenant -dbusername MultiTenUsr -dbpassword opentext -output "C:\ConnectionProfiles\multitenant_repository_profile.xml"
+
+ss_tenantadmin -action configure_multitenant_otds -otdsURL cce -otdsport 8443 -otdsusername exbrowser@strs.role -otdspassword opentext -otdsresource c01ed24f-0b82-4012-b891-10549d63de06 -otdsresourcepassword "5AKuv+mcLZoLdBOiLzxs5w==" -output "C:\ConnectionProfiles\multitenant_otds_profile.xml"
+
+ss_tenantadmin -action create_multitenant_repository -multitenantdbprofile "C:\ConnectionProfiles\multitenant_repository_profile.xml" -dbadminusername sa -dbadminpassword opentext
+
+ss_tenantadmin -action configure_mgw -multitenantdbprofile "C:\ConnectionProfiles\multitenant_repository_profile.xml" -multitenantotdsprofile "C:\ConnectionProfiles\multitenant_otds_profile.xml"
+
+ss_tenantadmin -action configure_tenant_repository -dbhost WinServer2012r2Std -dbport 1433 -dbvendor sqlserver -dbname DB_tenant1 -dbusername tenant1Usr -dbpassword opentext -output "C:\ConnectionProfiles\tenant_repository_profile.xml"
+
+ss_tenantadmin -action configure_tenant_otds -otdsURL cce/otdstenant/tenant1 -otdsport 8443 -otdsusername exbrowser@strs.role -otdspassword opentext -otdsresource d471c69f-a040-4f69-8eef-630c98c6ccd5 -otdsresourcepassword "7pc1IG93TFHGO7uKyjEqBQ==" -output "C:\ConnectionProfiles\tenant_otds_profile.xml"
+
+ss_tenantadmin -action create_tenant_repository -mtauser exadmin@strs.role -mtapassword opentext -tenantdbprofile "C:\ConnectionProfiles\tenant_repository_profile.xml" -dbadminusername sa -dbadminpassword opentext
+
+ss_tenantadmin -action create_tenant -mtauser exadmin@strs.role -mtapassword opentext -tenantdbprofile "C:\ConnectionProfiles\tenant_repository_profile.xml" -tenantotdsprofile "C:\ConnectionProfiles\tenant_otds_profile.xml" -tenantname tenant1
+

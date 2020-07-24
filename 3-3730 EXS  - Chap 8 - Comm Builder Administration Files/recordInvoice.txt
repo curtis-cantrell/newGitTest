@@ -1,0 +1,11 @@
+BEGIN_INVOICE;1020;05/21/2007;01-560
+HEADER;Mike Jones;mike.jones@smiths.com;+1-555-444500;Amy Smith;info@metalsmith.com;+1-555-123456;USA;Smith Contractors;70 Sprint Street;Boston, MA 02118;USA;Smith Inc.;P.O. Box 123;Boston, MA 02118;USA;Please quote Invoice Number and Your Reference upon payment.;30 Days from receiving invoice;Smith Fleet
+ITEM;010;CP-100;Copper Powder - C23;1,250.00;4.35;5,437.50
+ITEM;020;PG-500;Powder Cannister - 500L;3.00;65.00;195.00
+ITEM;030;CT-230;Copper Tubing - 23x10m;150.00;14.95;2,242.50
+SUBTOTAL;7,875.00
+NETTOTAL;USD;7,875.00
+DUEDATE;06/30/2007
+FREETEXT;For delivery information concerning this invoice, please use the contact details below.
+FREETEXT; 
+FREETEXT;Happy Holidays!
