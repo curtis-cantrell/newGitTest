@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<Driver> 
+   <Customer> 
+     <DataRecord>111111111</DataRecord>  
+     <CustomerLanguage>English</CustomerLanguage>  
+     <DeliveryPreference>EMAIL</DeliveryPreference>  
+     <DeliveryAddress>dowens@opentext.com</DeliveryAddress>  
+     <Mode>online</Mode>
+     <letter>0100</letter>
+   </Customer>
+   <Customer> 
+     <DataRecord>222222222</DataRecord>  
+     <CustomerLanguage>English</CustomerLanguage>  
+     <DeliveryPreference>EMAIL</DeliveryPreference>  
+     <DeliveryAddress>dowens@opentext.com</DeliveryAddress>  
+     <Mode>online</Mode>
+     <letter>0200</letter>
+   </Customer>     
+   <Customer> 
+     <DataRecord>333333333</DataRecord>  
+     <CustomerLanguage>English</CustomerLanguage>  
+     <DeliveryPreference>EMAIL</DeliveryPreference>  
+     <DeliveryAddress>dowens@opentext.com</DeliveryAddress>  
+     <Mode>online</Mode>
+     <letter>0300</letter>
+   </Customer>  
+    <Customer> 
+     <DataRecord>444444444</DataRecord>  
+     <CustomerLanguage>English</CustomerLanguage>  
+     <DeliveryPreference>EMAIL</DeliveryPreference>  
+     <DeliveryAddress>dowens@opentext.com</DeliveryAddress>  
+     <Mode>online</Mode>
+     <letter>0400</letter>
+   </Customer>
+</Driver> 

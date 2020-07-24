@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<root>
+   <sub>
+     <subno>111111111</subno>
+     <sublocale>United States</sublocale>
+     <subtitle>Ms</subtitle>
+     <subfname>Jane</subfname>
+     <sublname>Hack</sublname>
+     <subemp>Jenkins LLC</subemp>
+     <address>
+        <add1>2050 Newtown Pike</add1>
+        <add2>Apt. 100</add2>
+        <city>Boston</city>
+        <state>MA</state>
+        <zip>022011234</zip>
+     </address>
+  </sub>
+  <sub>
+     <subno>222222222</subno>
+     <sublocale>United States</sublocale>
+     <subtitle>Mr</subtitle>
+     <subfname>Gary</subfname>
+     <sublname>Alloway</sublname>
+     <subemp>Aurora Fast Foods Inc</subemp>
+     <address>
+        <add1>85 Styles Street</add1>
+        <add2></add2>
+        <city>Richmond</city>
+        <state>VA</state>
+        <zip>232194201</zip>
+     </address>
+  </sub>
+  <sub>
+     <subno>333333333</subno>
+     <sublocale>United States</sublocale>
+     <subtitle>Ms</subtitle>
+     <subfname>Susan</subfname>
+     <sublname>Atkinson</sublname>
+     <subemp>Lasercom Inc</subemp>
+     <address>
+        <add1>3000 Adelaide Blvd</add1>
+        <add2></add2>
+        <city>Boise</city>
+        <state>ID</state>
+        <zip>837090165</zip>
+     </address>
+  </sub>
+    <sub>
+     <subno>444444444</subno>
+     <sublocale>United States</sublocale>
+     <subtitle>Mr</subtitle>
+     <subfname>Brian</subfname>
+     <sublname>Dzwinski</sublname>
+     <subemp>Coastal Cars Inc</subemp>
+     <address>
+        <add1>555 Sunshine Way</add1>
+        <add2></add2>
+        <city>San Diego</city>
+        <state>CA</state>
+        <zip>404552032</zip>
+     </address>
+  </sub>
+</root>

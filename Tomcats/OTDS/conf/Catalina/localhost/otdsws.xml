@@ -1,0 +1,2 @@
+<Context docBase="C:\OpenText\OTDS16.4.2\otdsws" useHttpOnly="true">
+<Resources><JarResources base="C:\OpenText\OTDS16.4.2\opendj\lib\OpenDJ.jar" webAppMount="/WEB-INF/lib/OpenDJ.jar" className="org.apache.catalina.webresources.FileResourceSet"></JarResources><JarResources base="C:\OpenText\OTDS16.4.2\opendj\lib\je.jar" webAppMount="/WEB-INF/lib/je.jar" className="org.apache.catalina.webresources.FileResourceSet"></JarResources></Resources></Context>

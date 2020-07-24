@@ -1,0 +1,76 @@
+26-Jun-2020 16:55:38.607 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8084"]
+26-Jun-2020 16:55:38.685 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["https-openssl-nio-8443"]
+26-Jun-2020 16:55:38.685 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8008"]
+26-Jun-2020 16:55:38.763 INFO [Thread-39] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+26-Jun-2020 16:55:45.420 INFO [localhost-startStop-2] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+26-Jun-2020 16:55:45.451 INFO [localhost-startStop-2] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+26-Jun-2020 16:55:45.451 INFO [localhost-startStop-2] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+26-Jun-2020 16:55:45.467 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [otdsws] appears to have started a thread named [Thread-15] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(Unknown Source)
+26-Jun-2020 16:55:45.467 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [otdsws] appears to have started a thread named [Monitor Provider State Updater] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+26-Jun-2020 16:55:45.467 SEVERE [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [otdsws] created a ThreadLocal with key of type [com.opentext.ecm.components.runtimecontext.impl.RuntimeContext$1] (value [com.opentext.ecm.components.runtimecontext.impl.RuntimeContext$1@5f4f8006]) and a value of type [com.opentext.ecm.components.runtimecontext.impl.RuntimeContextThread] (value [com.opentext.ecm.components.runtimecontext.impl.RuntimeContextThread@2893e9c2]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+26-Jun-2020 16:55:45.482 INFO [Thread-39] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8084"]
+26-Jun-2020 16:55:45.482 INFO [Thread-39] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["https-openssl-nio-8443"]
+26-Jun-2020 16:55:45.482 INFO [Thread-39] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8008"]
+26-Jun-2020 16:55:45.498 INFO [Thread-42] org.apache.catalina.util.LifecycleBase.stop The stop() method was called on component [StandardServer[8025]] after stop() had already been called. The second call will be ignored.
+26-Jun-2020 16:56:11.071 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.15
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 5 2017 11:03:04 UTC
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.15.0
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows Server 2016
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jre1.8.0_152
+26-Jun-2020 16:56:11.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_152-b16
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Tomcats\OTDS
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Tomcats\OTDS
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Tomcats\OTDS
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Tomcats\OTDS
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Tomcats\OTDS\temp
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Tomcats\OTDS\conf\logging.properties
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms256m
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx1024m
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.12] using APR version [1.5.2].
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+26-Jun-2020 16:56:11.118 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+26-Jun-2020 16:56:12.211 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.0.2k  26 Jan 2017]
+26-Jun-2020 16:56:13.055 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8084"]
+26-Jun-2020 16:56:13.930 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+26-Jun-2020 16:56:13.930 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["https-openssl-nio-8443"]
+26-Jun-2020 16:56:14.977 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+26-Jun-2020 16:56:14.977 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8008"]
+26-Jun-2020 16:56:14.993 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+26-Jun-2020 16:56:14.993 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 8781 ms
+26-Jun-2020 16:56:15.149 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+26-Jun-2020 16:56:15.149 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.15
+26-Jun-2020 16:56:15.243 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\ot-authws.xml]
+26-Jun-2020 16:56:16.008 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Jun-2020 16:56:16.165 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\ot-authws.xml] has finished in [922] ms
+26-Jun-2020 16:56:16.165 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-admin.xml]
+26-Jun-2020 16:56:17.555 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Jun-2020 16:56:17.821 INFO [localhost-startStop-1] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.18 11/22/2013 01:21 AM'
+26-Jun-2020 16:56:17.977 INFO [localhost-startStop-1] com.sun.jersey.server.impl.application.DeferredResourceConfig$ApplicationHolder.<init> Instantiated the Application class com.opentext.otds.webadmin.WebAdminApp
+26-Jun-2020 16:56:18.790 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-admin.xml] has finished in [2,625] ms
+26-Jun-2020 16:56:18.790 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-usergroup.xml]
+26-Jun-2020 16:56:18.852 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Jun-2020 16:56:18.868 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-usergroup.xml] has finished in [78] ms
+26-Jun-2020 16:56:18.868 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-v2.xml]
+26-Jun-2020 16:56:19.024 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Jun-2020 16:56:19.040 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otds-v2.xml] has finished in [172] ms
+26-Jun-2020 16:56:19.040 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otdstenant.xml]
+26-Jun-2020 16:56:19.055 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+26-Jun-2020 16:56:19.071 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otdstenant.xml] has finished in [31] ms
+26-Jun-2020 16:56:19.071 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying configuration descriptor [C:\Tomcats\OTDS\conf\Catalina\localhost\otdsws.xml]
+26-Jun-2020 16:56:27.665 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.

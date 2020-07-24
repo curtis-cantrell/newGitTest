@@ -1,0 +1,68 @@
+
+===== list certificates in store  =====
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -list -keystore "C:\Program Files\Java\jre1.8.0_152\lib\security\cacerts" -storepass opentext-alias training
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -list -keystore "C:\Program Files\Java\jdk1.8.0_152\jre\lib\security\cacerts" -storepass opentext-alias training
+===========
+
+
+====== Change the JVM default pass ======
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -storepasswd -v -new opentext -storepass changeit -keystore "C:\Program Files\Java\jre1.8.0_152\lib\security\cacerts" 
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -v -storepasswd -keystore "C:\Program Files\Java\jdk1.8.0_152\jre\lib\security\cacerts" -new opentext -storepass changeit
+=========================================
+
+
+======== Delete existing "cce" certificate from JVM ==============
+keytool -delete -alias training -keystore "C:\Program Files\Java\jre1.8.0_152\lib\security\cacerts" -storepass opentext
+keytool -delete -alias training -keystore "C:\Program Files\Java\jdk1.8.0_152\jre\lib\security\cacerts" -storepass opentext
+==================================================================
+
+
+======== Generate keystore 1 year with dns (SAN used because chrome wants it ==============
+keytool -genkey -alias training -keyalg RSA -dname "CN=thecompany.com,OU=Opentext,O=Training,L=Miami,S=FL,C=US" -ext SAN=dns:thecompany.com -keypass opentext -storepass opentext -keystore c:\temp\keystore.pfx -validity 9999 -storetype pkcs12
+
+
+or 
+
+keytool -genkey -alias training -keyalg RSA -dname "CN=thecompany.com,OU=Opentext,O=Training,L=Miami,S=FL,C=US" -ext SAN=dns:thecompany.com -keypass opentext -storepass opentext -keystore c:\temp\keystore.jks -validity 9999 
+keytool -importkeystore -srckeystore "c:\temp\keystore.jks" -srcstoretype JKS -srcstorepass opentext -destkeystore "c:\temp\keystore.pfx" -deststoretype PKCS12 -deststorepass opentext
+
+===========================================================================================
+
+
+======== Convert keystore to pfx ==============
+keytool -importkeystore -srckeystore "C:\Training\Resources\Tomcat\keystore.jks" -srcstoretype JKS -srcstorepass opentext -destkeystore "C:\Training\Resources\Tomcat\keystore.pfx" -deststoretype PKCS12 -deststorepass opentext
+===============================================
+
+======== Export certificate to cer file ==============
+keytool -exportcert -alias training -dname "CN=thecompany.com,OU=Opentext,O=Training,L=Miami,S=FL,C=US" -ext SAN=dns:thecompany.com -storepass opentext -file c:\temp\training.cer -keystore c:\temp\keystore.pfx
+
+======================================================
+
+
+======== Import certificates into JVM ==============
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -import -alias training -keystore "C:\Program Files\Java\jre1.8.0_152\lib\security\cacerts" -file C:\temp\training.cer -storepass opentext  
+"C:\Program Files\Java\jdk1.8.0_152\bin\keytool" -import -alias training -keystore "C:\Program Files\Java\jdk1.8.0_152\jre\lib\security\cacerts" -file C:\temp\training.cer -storepass opentext
+====================================================
+
+
+
+
+
+copy c:\temp\keystore.pfx C:\Tomcats\OTDS\conf
+copy c:\temp\cce.cer C:\OpenText\Exstream\16.4.0\Platform\Core\16.4.0\bin\security\certificatestore\trusted\authorities
+copy c:\temp\cce.cer C:\OpenText\Exstream\16.4.0\Server\global\security\certificatestore\trusted\authorities
+copy c:\temp\keystore.jks C:\ManagementGateway\16.4.0\root\applications\SGW\wd
+copy c:\temp\keystore.pfx C:\OpenText\Exstream\16.4.0\Server\global\security\keystore\private
+
+
+
+Add the following line to C:\OpenText\Exstream\16.4.0\Server\solutions\management\mgmgateway.xml
+<implementation module="mgmgateway">
+----------> add this line ------>	<virtualhost name= "thecompany.com"/>
+<export type="application/x-application.com-resource">
+
+
+Change the pfx in C:\OpenText\Exstream\16.4.0\Server\solutions\management\mgw-trustedcommunicationchannel.xml
+<!-- <file href="../../global/security/keystore/private/demo.pfx" password="ApaBok" /> -->
+<file href="../../global/security/keystore/private/keystore.pfx" password="opentext" />
+

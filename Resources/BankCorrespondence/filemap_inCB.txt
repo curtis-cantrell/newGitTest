@@ -1,0 +1,8 @@
+//==== Package "Bank Correspondence" Version 1 ====
+
+//---- Filemaps found in manifest ----
+
+// Data File: DBCS:Branding_Init   File type: initialization file
+-FILEMAP=BrandInit,C:\ExDemo\Bank Correspondence\Data\BankBranding.csv
+// Data File: CustomerRecords   File type: reference file
+-FILEMAP=CustData,C:\ExDemo\Bank Correspondence\Data\BankCustData.txt

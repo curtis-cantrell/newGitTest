@@ -1,0 +1,35 @@
+2019-08-10 06:20:10.093 [ Session Task-7] WARN   OTDS.Root.tenant1.com.opentext.otds.common.config.LogController  - No GlobalConfig found on backend tenant1
+2019-08-10 06:20:10.093 [ Session Task-7] INFO   OTDS.Root.tenant1.com.opentext.otds.es.sync.DirSyncFactory  - DirSyncFactory::dispatchRepoChangeEvent: tenant tenant1 was removed.
+2020-07-23 14:35:49.490 [Session Task-15] WARN   OTDS.Root.tenant1.com.opentext.otds.common.config.LogController  - No GlobalConfig found on backend tenant1
+2020-07-23 14:35:49.709 [Session Task-13] ERROR  OTDS.Root.tenant1.com.opentext.otds.messagebroker.OtdsMessageBroker  - Exception during event delivery, assuming non-recoverable: org.apache.activemq.command.ActiveMQObjectMessage
+java.lang.NullPointerException
+	at com.opentext.otds.as.api.AuthenticationConfigurationAPI.invokeScopedHttpHandlers(AuthenticationConfigurationAPI.java:301)
+	at com.opentext.otds.as.api.AuthenticationHandlerCache.addAuthenticationHandler(AuthenticationHandlerCache.java:132)
+	at com.opentext.otds.as.api.AuthenticationServiceAPI$1.onEvent(AuthenticationServiceAPI.java:465)
+	at com.opentext.otds.messagebroker.impl.MessageFeedListener.onMessage(MessageFeedListener.java:66)
+	at org.apache.activemq.ActiveMQMessageConsumer.dispatch(ActiveMQMessageConsumer.java:1401)
+	at org.apache.activemq.ActiveMQSessionExecutor.dispatch(ActiveMQSessionExecutor.java:131)
+	at org.apache.activemq.ActiveMQSessionExecutor.iterate(ActiveMQSessionExecutor.java:202)
+	at org.apache.activemq.thread.PooledTaskRunner.runTask(PooledTaskRunner.java:133)
+	at org.apache.activemq.thread.PooledTaskRunner$1.run(PooledTaskRunner.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-23 14:35:49.756 [Session Task-14] ERROR  OTDS.Root.tenant1.com.opentext.otds.messagebroker.OtdsMessageBroker  - Exception during event delivery, assuming non-recoverable: org.apache.activemq.command.ActiveMQObjectMessage
+java.lang.NullPointerException
+	at com.opentext.otds.as.api.AuthenticationConfigurationAPI.invokeScopedHttpHandlers(AuthenticationConfigurationAPI.java:301)
+	at com.opentext.otds.as.api.AuthenticationHandlerCache.addAuthenticationHandler(AuthenticationHandlerCache.java:132)
+	at com.opentext.otds.as.api.AuthenticationServiceAPI$1.onEvent(AuthenticationServiceAPI.java:465)
+	at com.opentext.otds.messagebroker.impl.MessageFeedListener.onMessage(MessageFeedListener.java:66)
+	at org.apache.activemq.ActiveMQMessageConsumer.dispatch(ActiveMQMessageConsumer.java:1401)
+	at org.apache.activemq.ActiveMQSessionExecutor.dispatch(ActiveMQSessionExecutor.java:131)
+	at org.apache.activemq.ActiveMQSessionExecutor.iterate(ActiveMQSessionExecutor.java:202)
+	at org.apache.activemq.thread.PooledTaskRunner.runTask(PooledTaskRunner.java:133)
+	at org.apache.activemq.thread.PooledTaskRunner$1.run(PooledTaskRunner.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2020-07-23 14:36:38.636 [Session Task-18] INFO   OTDS.Root.tenant1.com.opentext.otds.es.sync.DirSyncFactory  - DirSyncFactory::restartTenant: found new tenant.
+2020-07-23 14:36:38.677 [Session Task-18] INFO   OTDS.Root.tenant1.com.opentext.otds.es.sync.DirSyncFactory  - DirSyncFactory::restartTenant: restarting tenant.
+2020-07-23 14:36:38.709 [Session Task-18] INFO   OTDS.Root.tenant1.com.opentext.otds.es.sync.DirSyncFactory  - DirSyncFactory::startTenantPartitions: Running as Synchronization Master Host
+2020-07-23 14:36:38.715 [Session Task-18] INFO   OTDS.Root.tenant1.com.opentext.otds.es.sync.DirSyncFactory  - DirSyncFactory::restartTenant: tenant was restarted.

@@ -1,0 +1,4 @@
+25-Aug-2019 16:00:26.386 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8084"]
+25-Aug-2019 16:00:26.480 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["https-openssl-nio-8443"]
+25-Aug-2019 16:00:26.542 INFO [Thread-39] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8008"]
+25-Aug-2019 16:00:26.604 INFO [Thread-39] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
