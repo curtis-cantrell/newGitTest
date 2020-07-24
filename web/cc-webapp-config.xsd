@@ -1,0 +1,45 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="cc-web-app" type="cc-web-appType"/>
+    <xs:complexType name="url-mappingType">
+        <xs:sequence minOccurs="0">
+            <xs:element type="xs:string" name="url-pattern"/>
+            <xs:element type="xs:string" name="tenant"/>
+            <xs:element type="xs:string" name="domain"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="url-mappingsType">
+        <xs:sequence>
+            <xs:element type="url-mappingType" name="url-mapping" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mgw-urlsType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="mgw-url" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="cc-web-appType">
+        <xs:all minOccurs="1" maxOccurs="1">
+            <xs:element type="mgw-urlsType" name="mgw-urls" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="xs:string" name="storyboard-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="retouch-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="analytics-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="workshop-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="supervisor-url" minOccurs="0" maxOccurs="1"/>
+			<xs:element type="xs:string" name="ruleeditor-url" minOccurs="0" maxOccurs="1"/>
+			<xs:element type="xs:string" name="writer-url" minOccurs="0" maxOccurs="1"/>
+			<xs:element type="xs:string" name="bca-url" minOccurs="0" maxOccurs="1"/>
+			<xs:element type="xs:string" name="orchestrator-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="url-mappingsType" name="url-mappings" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="update3-access-flag" type="xs:string"  minOccurs="0" maxOccurs="1"/>
+            <xs:element name="deployment-type"  minOccurs="0" maxOccurs="1" default="prod">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="dev"/>
+                        <xs:enumeration value="prod"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

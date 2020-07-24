@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- 16.6.0_GA_443 -->
+<cc-web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="../xsd/cc-webapp-config.xsd">
+    <!-- we can specify multiple mgw-url -->
+    <mgw-urls>
+        <!-- we can specify multiple mgw-url, first order of MGW priority will be based on the order of the
+         below configured tags. i.e First configured url will be given highest priority and if that fails second one will
+         be picked up and on. If all mgw-urls fails, error message will be shown.
+         -->
+        <mgw-url>https://localhost:28801/management/rest/v1/servicegateways</mgw-url>
+        <!--<mgw-url>https://localhost:29400/management/rest/v1/servicegateways</mgw-url>
+        <mgw-url>https://localhost:30800/management/rest/v1/servicegateways</mgw-url>
+        -->
+    </mgw-urls>
+	
+
+    <!-- Storyboard url, should be one and is not a mandatory tag -->
+    <storyboard-url>http://localhost:8080/storyboard</storyboard-url>
+
+    <!-- Retouch url, should be one and is not a mandatory tag -->
+    <retouch-url>http://localhost:8080/retouch</retouch-url>
+    
+    <!-- Workshop url, should be one and is not a mandatory tag -->
+    <workshop-url>http://localhost:8080/workshop</workshop-url>
+    
+    <!-- Supervisor url, should be one and is not a mandatory tag -->
+    <supervisor-url>http://localhost:8080/supervisor</supervisor-url>
+    
+	<!-- Rule editor url, should be one and is not a mandatory tag -->
+	<ruleeditor-url>http://localhost:8080/ruleeditor</ruleeditor-url>	   
+	
+	<!-- Writer url, should be one and is not a mandatory tag -->
+	<writer-url>http://localhost:8080/writer</writer-url>
+	
+	<!-- Orchestrator, should be one and is not a mandatory tag -->
+	<orchestrator-url>http://localhost:8080/orchestrator</orchestrator-url>	
+	
+	<!-- BCA / Exstream content launcher url, should be one and is not a mandatory tag -->
+	<bca-url>http://localhost:8080/exstream</bca-url>
+	
+    <!-- use url-mappings to create friendly urls -->
+    <!--<url-mappings>
+      <url-mapping>
+           <url-pattern>tenant1</url-pattern>
+           <tenant>9B4AAD3B-E870-1E45-A5A8-B28A3A62C3A7</tenant>
+           <domain>C8138B90-9AAE-8C44-9D70-F015CC6277E1</domain>
+       </url-mapping>
+       <url-mapping>
+           <url-pattern>tenant2</url-pattern>
+           <tenant>9B4AAD3B-E870-1E45-A5A8-B28A3A62C3A7</tenant>
+           <domain>C8138B90-9AAE-8C44-9D70-F015CC6277E1</domain>
+       </url-mapping>
+
+    </url-mappings>-->
+
+    <!-- If the MGW is configured with self signed certificate use dev otherwise prod.
+      This element takes only two values dev and prod -->
+    <deployment-type>dev</deployment-type>
+</cc-web-app>
